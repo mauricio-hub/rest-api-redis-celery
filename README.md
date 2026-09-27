@@ -1,32 +1,50 @@
 # 📊 Asynchronous Reports System
 
-A simple project that implements an asynchronous report generation system with **Django REST Framework**, **Celery**, and **Redis**.
+Django REST Framework with Celery and Redis for background task processing.
 
 ---
 
-## 🎯 What is this?
+## 🚀 Quick Start
 
-A system where:
-- The user **creates a report** (fast)
-- The system puts it in a **queue** (Redis)
-- A **worker** (Celery) processes it in the background (non-blocking)
-- The user sees the progress in real time
-
----
-
-## 🏗️ Key Concepts
-
-### **Job**
-A task that needs to be processed. In our case: "generate a report"
-
-```json
-{
-  "id": 1,
-  "title": "Sales Report",
-  "status": "pending",
-  "result": null
-}
+### Setup
+```bash
+python -m venv venv
+venv\Scripts\activate
+pip install django djangorestframework celery redis
+python manage.py migrate
+docker run -d --name redis -p 6379:6379 redis:latest
 ```
 
-### **Queue**
-Place where tasks are stored waiting to be processed. We use **Redis**.
+### Run (2 terminals)
+```bash
+# Terminal 1
+python manage.py runserver
+
+# Terminal 2
+celery -A config worker -l info
+```
+
+---
+
+## 📡 API
+
+```bash
+POST   /api/reports/          # Create
+GET    /api/reports/          # List
+GET    /api/reports/1/        # Get one
+GET    /api/reports/1/status/ # Check status
+PUT    /api/reports/1/        # Update
+DELETE /api/reports/1/        # Delete
+```
+
+---
+
+## 📊 States
+
+`pending` → `processing` → `completed` | `failed`
+
+---
+
+## 🛠️ Tech
+
+Django • DRF • Celery • Redis • SQLite
