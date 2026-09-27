@@ -1,0 +1,74 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.eggs/
+*.egg-info/
+dist/
+build/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+/media
+/staticfiles
+
+# Celery
+celery_results.sqlite
+celery-beat-schedule
+celerybeat-schedule
+dump.rdb
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+.windows/
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Redis/RabbitMQ
+dump.rdb
+
+# Misc
+.cache/
+*.bak
+*.tmp
+
+
+
+# Docker (opcional, si quieres versionarlo diferente)
+# .dockerignore
+
+# Secrets
+secrets.json
+config.secret.py
