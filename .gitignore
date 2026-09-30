@@ -64,6 +64,7 @@ dump.rdb
 *.bak
 *.tmp
 
+pendientes.txt
 
 
 # Docker (opcional, si quieres versionarlo diferente)
